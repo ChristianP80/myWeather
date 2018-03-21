@@ -8,17 +8,26 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+
     @IBOutlet weak var tableView: UITableView!
     
     var citys : [TempData] = []
+    var serachController : UISearchController!
+    var searchResult : [TempData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         citys = createTempData()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        definesPresentationContext = true
+        serachController = UISearchController(searchResultsController: nil)
+        serachController.searchResultsUpdater = self
+
+        
+        navigationItem.searchController = serachController
         
     }
     
@@ -27,7 +36,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         var tempCitys : [TempData] = []
         
         let city1 = TempData(image: #imageLiteral(resourceName: "fog"), cityName: "Göteborg", temperature: "10°")
-        let city2 = TempData(image: #imageLiteral(resourceName: "light_rain"), cityName: "Sockholm", temperature: "6°")
+        let city2 = TempData(image: #imageLiteral(resourceName: "light_rain"), cityName: "Stockholm", temperature: "6°")
         let city3 = TempData(image: #imageLiteral(resourceName: "sunny"), cityName: "Borås", temperature: "22°")
         let city4 = TempData(image: #imageLiteral(resourceName: "tstorm1"), cityName: "Norrköping", temperature: "4°")
         let city5 = TempData(image: #imageLiteral(resourceName: "tstorm3"), cityName: "Södertälje", temperature: "11°")
@@ -52,14 +61,53 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+
+        if let text = serachController.searchBar.text?.lowercased() {
+            searchResult = citys.filter({ $0.cityName.lowercased().contains(text) })
+        } else {
+            searchResult = []
+        }
+        tableView.reloadData()
+    }
+    
+    var shouldUseSearchResult : Bool {
+        if let text = serachController.searchBar.text {
+            if text.isEmpty {
+                return false
+            } else {
+                return serachController.isActive
+            }
+        } else {
+            return false
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return citys.count
+        if shouldUseSearchResult {
+            return searchResult.count
+        } else {
+            return citys.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tempData = citys[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell") as! WeatherCell
+        
+        let arrayToUse : [TempData]
+        
+        if shouldUseSearchResult {
+            arrayToUse = searchResult
+        } else {
+            arrayToUse = citys
+        }
+        let tempData = arrayToUse[indexPath.row]
+
         
         cell.setTempData(tempData: tempData)
         
