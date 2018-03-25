@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TempData {
+class FavoriteCity {
     
     var image : UIImage
     var cityName : String

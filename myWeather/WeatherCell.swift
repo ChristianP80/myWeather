@@ -14,7 +14,7 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     
-    func setTempData(tempData : TempData) {
+    func setTempData(tempData : FavoriteCity) {
         weatherImageView.image = tempData.image
         cityLabel.text = tempData.cityName
         tempLabel.text = tempData.temperature

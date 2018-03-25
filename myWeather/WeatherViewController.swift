@@ -12,9 +12,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     
-    var citys : [TempData] = []
+    var citys : [FavoriteCity] = []
     var serachController : UISearchController!
-    var searchResult : [TempData] = []
+    var searchResult : [FavoriteCity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,20 +31,20 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    func createTempData() -> [TempData] {
+    func createTempData() -> [FavoriteCity] {
         
-        var tempCitys : [TempData] = []
+        var tempCitys : [FavoriteCity] = []
         
-        let city1 = TempData(image: #imageLiteral(resourceName: "fog"), cityName: "Göteborg", temperature: "10°")
-        let city2 = TempData(image: #imageLiteral(resourceName: "light_rain"), cityName: "Stockholm", temperature: "6°")
-        let city3 = TempData(image: #imageLiteral(resourceName: "sunny"), cityName: "Borås", temperature: "22°")
-        let city4 = TempData(image: #imageLiteral(resourceName: "tstorm1"), cityName: "Norrköping", temperature: "4°")
-        let city5 = TempData(image: #imageLiteral(resourceName: "tstorm3"), cityName: "Södertälje", temperature: "11°")
-        let city6 = TempData(image: #imageLiteral(resourceName: "overcast"), cityName: "Halmstad", temperature: "10°")
-        let city7 = TempData(image: #imageLiteral(resourceName: "snow4"), cityName: "Kiruna", temperature: "-2°")
-        let city8 = TempData(image: #imageLiteral(resourceName: "snow5"), cityName: "Malmö", temperature: "-4°")
-        let city9 = TempData(image: #imageLiteral(resourceName: "shower3"), cityName: "Varberg", temperature: "6°")
-        let city10 = TempData(image: #imageLiteral(resourceName: "light_rain"), cityName: "Falkenberg", temperature: "3°")
+        let city1 = FavoriteCity(image: #imageLiteral(resourceName: "fog"), cityName: "Göteborg", temperature: "10°")
+        let city2 = FavoriteCity(image: #imageLiteral(resourceName: "light_rain"), cityName: "Stockholm", temperature: "6°")
+        let city3 = FavoriteCity(image: #imageLiteral(resourceName: "sunny"), cityName: "Borås", temperature: "22°")
+        let city4 = FavoriteCity(image: #imageLiteral(resourceName: "tstorm1"), cityName: "Norrköping", temperature: "4°")
+        let city5 = FavoriteCity(image: #imageLiteral(resourceName: "tstorm3"), cityName: "Södertälje", temperature: "11°")
+        let city6 = FavoriteCity(image: #imageLiteral(resourceName: "overcast"), cityName: "Halmstad", temperature: "10°")
+        let city7 = FavoriteCity(image: #imageLiteral(resourceName: "snow4"), cityName: "Kiruna", temperature: "-2°")
+        let city8 = FavoriteCity(image: #imageLiteral(resourceName: "snow5"), cityName: "Malmö", temperature: "-4°")
+        let city9 = FavoriteCity(image: #imageLiteral(resourceName: "shower3"), cityName: "Varberg", temperature: "6°")
+        let city10 = FavoriteCity(image: #imageLiteral(resourceName: "light_rain"), cityName: "Falkenberg", temperature: "3°")
         
         tempCitys.append(city1)
         tempCitys.append(city2)
@@ -99,7 +99,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell") as! WeatherCell
         
-        let arrayToUse : [TempData]
+        let arrayToUse : [FavoriteCity]
         
         if shouldUseSearchResult {
             arrayToUse = searchResult
