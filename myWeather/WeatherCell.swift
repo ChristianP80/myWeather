@@ -14,10 +14,10 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     
-    func setTempData(tempData : FavoriteCity) {
-        weatherImageView.image = tempData.image
-        cityLabel.text = tempData.cityName
-        tempLabel.text = tempData.temperature
+    func setTempData(tempData : WeatherModel) {
+     //   weatherImageView.image = tempData.image
+        cityLabel.text = tempData.city
+        tempLabel.text = String(tempData.temperature)
     }
     
 }

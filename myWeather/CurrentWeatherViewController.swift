@@ -17,6 +17,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     @IBOutlet weak var weatherConditionImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var navSearchButton: UIBarButtonItem!
     
     
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -26,14 +27,24 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     var favoriteCitys : [String] = []
     let locationManager = CLLocationManager()
     let weatherModel = WeatherModel()
+    var cityArray : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navSearchButton.isEnabled = false
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        let queue = DispatchQueue(label: "Load JSON")
+        queue.async {
+            self.readJson()
+        }
+        
+        print("Hej!")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -49,6 +60,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
             let params : [String : String] = ["lat" : "\(latitude)", "lon" : "\(longitude)", "appid" : APP_ID]
             
             getWeatherData(url: WEATHER_URL, parameters: params)
+            locationManager.delegate = nil
         }
     }
     
@@ -64,7 +76,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
                 print("Success, got the weatherdata")
                 
                 self.weatherJSON = JSON(response.result.value!)
-                print(self.weatherJSON)
+               // print(self.weatherJSON)
                 self.updateWeatherData(json: self.weatherJSON)
                 
             } else {
@@ -86,6 +98,40 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
         } else {
             cityLabel.text = "Weather unavailable"
         }
+    }
+    
+    func readJson(){
+        if let path = Bundle.main.path(forResource: "city.list", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = try JSON(data: data)
+                
+                createCityArray(jsonObj: jsonObj)
+                navSearchButton.isEnabled = true
+//                print("city array = \(cityArray)")
+//                print("jsonData:\(jsonObj[0]["name"])")
+            } catch let error {
+                print("parse error: \(error.localizedDescription)")
+            }
+        } else {
+            print("Invalid filename/path.")
+        }
+        
+    }
+    
+    func createCityArray(jsonObj: JSON) {
+        
+        let arr = jsonObj.array!
+        for index in 0..<arr.count {
+            let obj = arr[index]
+            let cityName = obj["name"].string!
+            cityArray.append(cityName)
+        }
+//        for city in jsonObj["name"] {
+//            cityArray.append(city)
+//        }
+
+
     }
     
     func updateGUI() {

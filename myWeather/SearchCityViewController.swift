@@ -14,17 +14,20 @@ protocol SearchCityDelegate {
 
 class SearchCityViewController: UIViewController {
     
-    var delegate : SearchCityDelegate?
     
-    @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var searchCityTextField: UITextField!
-    @IBAction func serachCityPressed(_ sender: AnyObject) {
-
-        let city = searchCityTextField.text!
-
-        delegate?.searchForaNewCity(city: city)
-
-        self.dismiss(animated: true, completion: nil)
-    }
+    @IBOutlet weak var searchCityTableVoew: UITableView!
+    
+    var delegate : SearchCityDelegate?
+//
+//    @IBOutlet weak var navBar: UINavigationBar!
+//    @IBOutlet weak var searchCityTextField: UITextField!
+//    @IBAction func serachCityPressed(_ sender: AnyObject) {
+//
+//        let city = searchCityTextField.text!
+//
+//        delegate?.searchForaNewCity(city: city)
+//
+//        self.dismiss(animated: true, completion: nil)
+//    }
 }
 
