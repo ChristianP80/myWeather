@@ -167,13 +167,15 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
             
             destinationVC.delegate = self
             
+            destinationVC.citys = cityArray
+            
         }
         
         if segue.identifier == "favorites" {
             
             let destinationVC = segue.destination as! WeatherViewController
             
-            //destinationVC.citys = favoriteCitys
+            //destinationVC.citys = cityArray
             
         }
         

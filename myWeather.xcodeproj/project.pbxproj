@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D1E3DB1206B6C4400E240F1 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E3DB0206B6C4400E240F1 /* city.list.json */; };
+		3D3B88E3206D5E77007E484F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B88E2206D5E77007E484F /* SearchCell.swift */; };
 		3D67E9562063110000EC8424 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67E9552063110000EC8424 /* CurrentWeatherViewController.swift */; };
 		3D67E978206504E200EC8424 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67E977206504E200EC8424 /* WeatherModel.swift */; };
 		3D67E97A2065A39B00EC8424 /* SearchCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67E9792065A39B00EC8424 /* SearchCityViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		3D1E3DB0206B6C4400E240F1 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
+		3D3B88E2206D5E77007E484F /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		3D67E9552063110000EC8424 /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
 		3D67E977206504E200EC8424 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		3D67E9792065A39B00EC8424 /* SearchCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				3D67E9792065A39B00EC8424 /* SearchCityViewController.swift */,
 				3D67E9552063110000EC8424 /* CurrentWeatherViewController.swift */,
 				3D9CED31205F064800F7D5B1 /* WeatherCell.swift */,
+				3D3B88E2206D5E77007E484F /* SearchCell.swift */,
 				3D9CED2F205EFBAA00F7D5B1 /* WeatherViewController.swift */,
 				3D67E977206504E200EC8424 /* WeatherModel.swift */,
 				3D9CED24205EF98600F7D5B1 /* Assets.xcassets */,
@@ -240,6 +243,7 @@
 				3D9CED1E205EF98600F7D5B1 /* AppDelegate.swift in Sources */,
 				3D67E978206504E200EC8424 /* WeatherModel.swift in Sources */,
 				3D67E9562063110000EC8424 /* CurrentWeatherViewController.swift in Sources */,
+				3D3B88E3206D5E77007E484F /* SearchCell.swift in Sources */,
 				3D9CED30205EFBAA00F7D5B1 /* WeatherViewController.swift in Sources */,
 				3D67E97A2065A39B00EC8424 /* SearchCityViewController.swift in Sources */,
 				3D9CED32205F064800F7D5B1 /* WeatherCell.swift in Sources */,
