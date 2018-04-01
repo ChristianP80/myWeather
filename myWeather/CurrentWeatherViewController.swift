@@ -76,7 +76,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
                 print("Success, got the weatherdata")
                 
                 self.weatherJSON = JSON(response.result.value!)
-               // print(self.weatherJSON)
+                print(self.weatherJSON)
                 self.updateWeatherData(json: self.weatherJSON)
                 
             } else {

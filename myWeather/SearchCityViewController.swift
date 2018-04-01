@@ -20,6 +20,8 @@ class SearchCityViewController: UIViewController, UITableViewDelegate, UITableVi
     var citys: [String] = []
     var serachController : UISearchController!
     var searchResult : [String] = []
+    var arrayToUse : [String] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class SearchCityViewController: UIViewController, UITableViewDelegate, UITableVi
         definesPresentationContext = true
         serachController = UISearchController(searchResultsController: nil)
         serachController.searchResultsUpdater = self
-        
+        serachController.dimsBackgroundDuringPresentation = false
         
         navigationItem.searchController = serachController
     }
@@ -67,7 +69,6 @@ class SearchCityViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell") as! SearchCell
         
-        let arrayToUse : [String]
         
         if shouldUseSearchResult {
             arrayToUse = searchResult
@@ -80,10 +81,16 @@ class SearchCityViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
+        print("Selected row #\(indexPath.row)! ")
+        let city = arrayToUse[indexPath.row]
+        print(city)
+        delegate?.searchForaNewCity(city: city)
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
-    
+
 }
 
