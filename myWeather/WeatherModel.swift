@@ -14,7 +14,8 @@ class WeatherModel {
     var condition : Int = 0
     var city : String = ""
     var weatherIconName : String = ""
-   // var windSpeed :
+    var humidity : Int = 0
+    var windSpeed : Float = 0
     
     func updateWeatherIcon(condition: Int) -> String {
         

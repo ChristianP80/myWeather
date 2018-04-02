@@ -94,10 +94,20 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
             weatherModel.city = json["name"].stringValue
             weatherModel.condition = json["weather"][0]["id"].intValue
             weatherModel.weatherIconName = weatherModel.updateWeatherIcon(condition: weatherModel.condition)
+            weatherModel.humidity = json["main"]["humidity"].intValue
+            weatherModel.windSpeed = json["wind"]["speed"].floatValue
             updateGUI()
         } else {
             cityLabel.text = "Weather unavailable"
         }
+    }
+    
+    func updateGUI() {
+        
+        cityLabel.text = weatherModel.city
+        tempLabel.text = String(weatherModel.temperature) + ("°")
+        weatherConditionImageView.image = UIImage(named: weatherModel.weatherIconName)
+        
     }
     
     func readJson(){
@@ -132,14 +142,6 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
 //        }
 
 
-    }
-    
-    func updateGUI() {
-        
-        cityLabel.text = weatherModel.city
-        tempLabel.text = String(weatherModel.temperature) + ("°")
-        weatherConditionImageView.image = UIImage(named: weatherModel.weatherIconName)
-        
     }
     
     func searchForaNewCity(city: String) {

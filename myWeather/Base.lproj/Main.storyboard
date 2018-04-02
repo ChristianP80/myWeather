@@ -69,6 +69,7 @@
                                             <outlet property="cityLabel" destination="adX-Ze-FrX" id="NKM-Ei-KA0"/>
                                             <outlet property="tempLabel" destination="hTS-Wf-Avr" id="RHZ-We-OMY"/>
                                             <outlet property="weatherImageView" destination="CAw-O2-yYh" id="riH-g9-4QJ"/>
+                                            <segue destination="KSD-lH-tYj" kind="show" id="Bck-h1-Aqp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -105,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSk-YG-ZSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2346" y="134"/>
+            <point key="canvasLocation" x="2412" y="496"/>
         </scene>
         <!--Current Weather View Controller-->
         <scene sceneID="UG1-v6-9Kl">
