@@ -11,7 +11,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate, SearchCityDelegate {
+class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate, SearchCityDelegate, searchWithFavoriteDelegate {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var weatherConditionImageView: UIImageView!
@@ -177,7 +177,9 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
             
             let destinationVC = segue.destination as! WeatherViewController
             
-            //destinationVC.citys = cityArray
+            destinationVC.delegate = self
+            
+            destinationVC.citys = favoriteCitys
             
         }
         
