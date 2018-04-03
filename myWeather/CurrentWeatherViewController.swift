@@ -23,6 +23,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "a41c95ab72c869ec929effc87d524984"
     
+    let defaults = UserDefaults.standard
     var weatherJSON : JSON = JSON.null
     var favoriteCitys : [String] = []
     let locationManager = CLLocationManager()
@@ -45,6 +46,12 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
         }
         
         print("Hej!")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if favoriteCitys.count == 0 {
+            loadSavedFavorites()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -156,8 +163,13 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
         
         favoriteCitys.append(cityLabel.text!)
         print("My favorites \(favoriteCitys)")
+        defaults.set(favoriteCitys, forKey: "SavedFavoriteCitys")
         performSegue(withIdentifier: "favorites", sender: self)
         
+    }
+    
+    func loadSavedFavorites() {
+        favoriteCitys = defaults.stringArray(forKey: "SavedFavoriteCitys") ?? [String]()
     }
     
     
