@@ -30,6 +30,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.reloadData()
 
     }
     
@@ -61,7 +62,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let tempResult = json["main"]["temp"].double {
             print("alla städer i listan är \(citys)")
-            //let city = WeatherModel()
             weatherModel.temperature = Int(tempResult - 273.15)
             weatherModel.city = json["name"].stringValue
             weatherModel.condition = json["weather"][0]["id"].intValue
@@ -69,11 +69,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             weatherModel.humidity = json["main"]["humidity"].intValue
             weatherModel.windSpeed = json["wind"]["speed"].floatValue
             
-            DispatchQueue.main.async {
+           // DispatchQueue.main.async {
                 cell.cityLabel.text = self.weatherModel.city
                 cell.tempLabel.text = String("\(self.weatherModel.temperature)" + "℃")
                 cell.weatherImageView.image = UIImage(named: self.weatherModel.weatherIconName)
-            }
+           // }
             
             
             print(weatherModel.city)
