@@ -108,6 +108,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected row \(indexPath.row)")
         print("Selected city = \(citys[indexPath.row])")
+        let city = citys[indexPath.row]
+        delegate?.searchForaNewCity(city: city)
+        navigationController?.popViewController(animated: true)
+
     }
 
 }

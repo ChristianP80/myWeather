@@ -17,6 +17,8 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     @IBOutlet weak var weatherConditionImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var navSearchButton: UIBarButtonItem!
     
     
@@ -114,6 +116,8 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
         cityLabel.text = weatherModel.city
         tempLabel.text = String(weatherModel.temperature) + ("°")
         weatherConditionImageView.image = UIImage(named: weatherModel.weatherIconName)
+        humidityLabel.text = "Humidity: \(weatherModel.humidity)%"
+        windSpeedLabel.text = "Wind Speed: \(weatherModel.windSpeed) m/s"
         
     }
     
