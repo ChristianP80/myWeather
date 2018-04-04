@@ -20,7 +20,8 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var navSearchButton: UIBarButtonItem!
-    
+    @IBOutlet weak var clothesImageView: UIImageView!
+    @IBOutlet weak var acessoryImageView: UIImageView!
     
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "a41c95ab72c869ec929effc87d524984"
@@ -174,6 +175,21 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     
     func loadSavedFavorites() {
         favoriteCitys = defaults.stringArray(forKey: "SavedFavoriteCitys") ?? [String]()
+    }
+    
+    func clothesRecomendation() {
+        switch self.weatherModel.temperature {
+        case -20...5:
+            clothesImageView.image = UIImage(named: "raincoat")
+        case 6...15:
+            clothesImageView.image = UIImage(named: "raincoat")
+        case 16...22:
+            clothesImageView.image = UIImage(named: "raincoat")
+        case 22...60:
+            clothesImageView.image = UIImage(named: "raincoat")
+        default:
+            clothesImageView.image = UIImage(named: "raincoat")
+        }
     }
     
     
