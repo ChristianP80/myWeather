@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     var delegate : searchWithFavoriteDelegate?
     let weatherModel = WeatherModel()
     var weatherJSON : JSON = JSON.null
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +113,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         delegate?.searchForaNewCity(city: city)
         navigationController?.popViewController(animated: true)
 
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            citys.remove(at: indexPath.row)
+            defaults.set(citys, forKey: "SavedFavoriteCitys")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 
 }

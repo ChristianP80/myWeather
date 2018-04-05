@@ -13,6 +13,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Compare City View Controller-->
+        <scene sceneID="yKg-2C-4l8">
+            <objects>
+                <viewController id="F7f-oO-s4G" customClass="CompareCityViewController" customModule="myWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bsl-KT-Lal">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Th9-jR-QUK" customClass="GKBarGraph">
+                                <rect key="frame" x="43" y="131" width="141" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDH-av-Xzm" customClass="GKBarGraph">
+                                <rect key="frame" x="192" y="131" width="141" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kd-op-dun">
+                                <rect key="frame" x="16" y="391" width="168" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3s-9P-B6G">
+                                <rect key="frame" x="178" y="391" width="168" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="47t-lr-M24"/>
+                    </view>
+                    <connections>
+                        <outlet property="cityPicker1" destination="3kd-op-dun" id="wTS-zd-tuM"/>
+                        <outlet property="cityPicker2" destination="o3s-9P-B6G" id="TaO-an-VuC"/>
+                        <outlet property="graph1" destination="Th9-jR-QUK" id="eqf-5x-Kbg"/>
+                        <outlet property="graph2" destination="hDH-av-Xzm" id="G8f-1G-KsY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yus-Ou-VDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477.60000000000002" y="883.80809595202402"/>
+        </scene>
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -171,6 +212,14 @@
                                     <constraint firstAttribute="width" secondItem="lIC-oW-eh9" secondAttribute="height" multiplier="1:1" id="3II-t3-bSN"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhY-J4-oFw">
+                                <rect key="frame" x="164" y="551" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="F7f-oO-s4G" kind="show" id="hN7-SG-UEs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

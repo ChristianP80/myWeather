@@ -52,9 +52,9 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if favoriteCitys.count == 0 {
+      
             loadSavedFavorites()
-        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -119,6 +119,8 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
         weatherConditionImageView.image = UIImage(named: weatherModel.weatherIconName)
         humidityLabel.text = "Humidity: \(weatherModel.humidity)%"
         windSpeedLabel.text = "Wind Speed: \(weatherModel.windSpeed) m/s"
+        clothesRecomendation()
+        accessoryRecomendation()
         
     }
     
@@ -166,11 +168,16 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     
     @IBAction func saveAsFavoritePressed(_ sender: UIButton) {
         
-        favoriteCitys.append(cityLabel.text!)
-        print("My favorites \(favoriteCitys)")
-        defaults.set(favoriteCitys, forKey: "SavedFavoriteCitys")
-        performSegue(withIdentifier: "favorites", sender: self)
-        
+        if favoriteCitys.contains(cityLabel.text!){
+            let alert = UIAlertController(title: "Already Favorite", message: "City is already added in favorite list", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            favoriteCitys.append(cityLabel.text!)
+            print("My favorites \(favoriteCitys)")
+            defaults.set(favoriteCitys, forKey: "SavedFavoriteCitys")
+            performSegue(withIdentifier: "favorites", sender: self)
+        }
     }
     
     func loadSavedFavorites() {
@@ -180,15 +187,36 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     func clothesRecomendation() {
         switch self.weatherModel.temperature {
         case -20...5:
-            clothesImageView.image = UIImage(named: "raincoat")
-        case 6...15:
-            clothesImageView.image = UIImage(named: "raincoat")
-        case 16...22:
-            clothesImageView.image = UIImage(named: "raincoat")
-        case 22...60:
-            clothesImageView.image = UIImage(named: "raincoat")
+            clothesImageView.image = #imageLiteral(resourceName: "winterjacket")
+        case 6...14:
+            clothesImageView.image = #imageLiteral(resourceName: "jacket")
+        case 15...19:
+            clothesImageView.image = #imageLiteral(resourceName: "hoodie")
+        case 20...60:
+            clothesImageView.image = #imageLiteral(resourceName: "shirt")
         default:
-            clothesImageView.image = UIImage(named: "raincoat")
+            clothesImageView.image = #imageLiteral(resourceName: "question")
+        }
+    }
+    
+    func accessoryRecomendation() {
+        switch weatherModel.weatherIconName {
+        case "sunny":
+            acessoryImageView.image = #imageLiteral(resourceName: "sunglasses")
+        case "light_rain", "shower3":
+            acessoryImageView.image = #imageLiteral(resourceName: "umbrella")
+        case "tstorm1", "tstorm3":
+            acessoryImageView.image = #imageLiteral(resourceName: "stayinside")
+        case "cloudy2", "fog", "overcast":
+            if weatherModel.temperature < 20 {
+                acessoryImageView.image = #imageLiteral(resourceName: "jeans")
+            } else {
+                acessoryImageView.image = #imageLiteral(resourceName: "shorts")
+            }
+        case "snow4", "snow5":
+            acessoryImageView.image = #imageLiteral(resourceName: "winterhat")
+        default:
+            acessoryImageView.image = #imageLiteral(resourceName: "question")
         }
     }
     

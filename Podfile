@@ -9,5 +9,6 @@ target 'myWeather' do
     pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'SVProgressHUD'
+pod 'GraphKit'
 
 end
