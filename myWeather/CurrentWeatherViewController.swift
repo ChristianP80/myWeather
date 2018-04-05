@@ -22,6 +22,8 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     @IBOutlet weak var navSearchButton: UIBarButtonItem!
     @IBOutlet weak var clothesImageView: UIImageView!
     @IBOutlet weak var acessoryImageView: UIImageView!
+    @IBOutlet weak var saveAsFavoriteButton: UIButton!
+    @IBOutlet weak var compareCitiesButton: UIButton!
     
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "a41c95ab72c869ec929effc87d524984"
@@ -219,7 +221,6 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
             acessoryImageView.image = #imageLiteral(resourceName: "question")
         }
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

@@ -169,9 +169,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLs-0m-dF4">
-                                <rect key="frame" x="108" y="492" width="159" height="51"/>
+                                <rect key="frame" x="108" y="492" width="159" height="50"/>
+                                <color key="backgroundColor" red="0.47338223457336426" green="0.67080646753311157" blue="0.82697731256484985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="eHe-8h-w7q"/>
+                                    <constraint firstAttribute="height" constant="50" id="eHe-8h-w7q"/>
+                                    <constraint firstAttribute="width" constant="159" id="iAG-94-Y2f"/>
                                 </constraints>
                                 <state key="normal" title="Save as favorite">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -212,10 +214,16 @@
                                     <constraint firstAttribute="width" secondItem="lIC-oW-eh9" secondAttribute="height" multiplier="1:1" id="3II-t3-bSN"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhY-J4-oFw">
-                                <rect key="frame" x="164" y="551" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhY-J4-oFw">
+                                <rect key="frame" x="108" y="550" width="159" height="50"/>
+                                <color key="backgroundColor" red="0.47338223457336426" green="0.67080646753311157" blue="0.82697731256484985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="qrQ-LG-deW"/>
+                                    <constraint firstAttribute="height" constant="50" id="vwN-da-HGe"/>
+                                </constraints>
+                                <state key="normal" title="Compare Cities">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="F7f-oO-s4G" kind="show" id="hN7-SG-UEs"/>
                                 </connections>
@@ -225,7 +233,7 @@
                         <constraints>
                             <constraint firstItem="Hmd-an-r4s" firstAttribute="top" secondItem="a1P-9y-3V1" secondAttribute="bottom" constant="12" id="4m1-52-eEn"/>
                             <constraint firstItem="1l5-jO-gLm" firstAttribute="top" secondItem="a1P-9y-3V1" secondAttribute="bottom" constant="12" id="5fN-WZ-9OZ"/>
-                            <constraint firstItem="fAJ-qc-eWG" firstAttribute="bottom" secondItem="RLs-0m-dF4" secondAttribute="bottom" constant="124" id="6N2-RQ-YKS"/>
+                            <constraint firstItem="fAJ-qc-eWG" firstAttribute="bottom" secondItem="RLs-0m-dF4" secondAttribute="bottom" constant="125" id="6N2-RQ-YKS"/>
                             <constraint firstItem="yE6-gO-lWv" firstAttribute="leading" secondItem="fAJ-qc-eWG" secondAttribute="leading" constant="33" id="9QS-eg-9S2"/>
                             <constraint firstItem="IQz-yn-ouX" firstAttribute="bottom" secondItem="fAJ-qc-eWG" secondAttribute="bottom" id="9gY-Ug-pZ5"/>
                             <constraint firstItem="yE6-gO-lWv" firstAttribute="top" secondItem="uVb-X9-RXA" secondAttribute="bottom" constant="12" id="A5I-sU-tg3"/>
@@ -243,8 +251,11 @@
                             <constraint firstItem="fAJ-qc-eWG" firstAttribute="trailing" secondItem="yUs-Ed-MB8" secondAttribute="trailing" constant="33" id="Udw-3g-3VW"/>
                             <constraint firstItem="fAJ-qc-eWG" firstAttribute="trailing" secondItem="lIC-oW-eh9" secondAttribute="trailing" constant="33" id="WVq-vy-xUY"/>
                             <constraint firstItem="IQz-yn-ouX" firstAttribute="leading" secondItem="fAJ-qc-eWG" secondAttribute="leading" id="WWM-g3-POp"/>
+                            <constraint firstItem="rhY-J4-oFw" firstAttribute="top" secondItem="RLs-0m-dF4" secondAttribute="bottom" constant="8" id="aTw-Ka-m8L"/>
                             <constraint firstItem="IQz-yn-ouX" firstAttribute="trailing" secondItem="fAJ-qc-eWG" secondAttribute="trailing" id="cb4-fV-vLl"/>
+                            <constraint firstItem="fAJ-qc-eWG" firstAttribute="trailing" secondItem="rhY-J4-oFw" secondAttribute="trailing" constant="108" id="fjJ-rQ-yZ6"/>
                             <constraint firstItem="IQz-yn-ouX" firstAttribute="trailing" secondItem="fAJ-qc-eWG" secondAttribute="trailing" id="h5Z-2I-A6H"/>
+                            <constraint firstItem="rhY-J4-oFw" firstAttribute="leading" secondItem="fAJ-qc-eWG" secondAttribute="leading" constant="108" id="iRM-H5-H0T"/>
                             <constraint firstItem="RLs-0m-dF4" firstAttribute="centerX" secondItem="a1P-9y-3V1" secondAttribute="centerX" id="mHM-Yw-wP9"/>
                             <constraint firstItem="fAJ-qc-eWG" firstAttribute="trailing" secondItem="Hmd-an-r4s" secondAttribute="trailing" constant="33" id="naW-8n-mtC"/>
                             <constraint firstItem="uVb-X9-RXA" firstAttribute="top" secondItem="1l5-jO-gLm" secondAttribute="bottom" constant="12" id="yBt-Br-Svy"/>
@@ -273,8 +284,10 @@
                         <outlet property="backgroundImageView" destination="IQz-yn-ouX" id="1zg-q3-rOl"/>
                         <outlet property="cityLabel" destination="a1P-9y-3V1" id="5CE-96-ZzP"/>
                         <outlet property="clothesImageView" destination="yE6-gO-lWv" id="pGq-AY-cVB"/>
+                        <outlet property="compareCitiesButton" destination="rhY-J4-oFw" id="1GZ-tB-A4B"/>
                         <outlet property="humidityLabel" destination="uVb-X9-RXA" id="zTK-5l-qlQ"/>
                         <outlet property="navSearchButton" destination="zZl-Xy-Khs" id="q4n-jG-o9k"/>
+                        <outlet property="saveAsFavoriteButton" destination="RLs-0m-dF4" id="GIs-gU-pnZ"/>
                         <outlet property="tempLabel" destination="Hmd-an-r4s" id="9Cv-nu-2pN"/>
                         <outlet property="weatherConditionImageView" destination="1l5-jO-gLm" id="CPU-9Q-sGm"/>
                         <outlet property="windSpeedLabel" destination="yUs-Ed-MB8" id="p4I-X6-vsP"/>

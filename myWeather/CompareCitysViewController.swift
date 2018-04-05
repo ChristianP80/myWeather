@@ -37,9 +37,6 @@ class CompareCityViewController: UIViewController, GKBarGraphDataSource, UIPicke
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func comparePressed( sender: Any) {
-    }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         updateLabel()
     }
@@ -49,16 +46,11 @@ class CompareCityViewController: UIViewController, GKBarGraphDataSource, UIPicke
         let city2 = favCitys[cityPicker2.selectedRow(inComponent: 0)]
         print("your citys are \(city1), \(city2)")
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     func numberOfBars() -> Int {
         return 3
-}
+    }
+    
     func valueForBar(at index: Int) -> NSNumber! {
         return index * 10 as NSNumber
     }
@@ -77,6 +69,8 @@ class CompareCityViewController: UIViewController, GKBarGraphDataSource, UIPicke
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return favCitys[row]
     }
+    
+    
     
 }
 

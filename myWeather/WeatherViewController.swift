@@ -122,6 +122,5 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
 }
 
