@@ -41,6 +41,11 @@
                                     <action selector="compareCitiesPressed:" destination="F7f-oO-s4G" eventType="touchUpInside" id="vAP-Xz-wFC"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rfY-lc-MZY">
+                                <rect key="frame" x="20" y="80" width="343" height="295"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="47t-lr-M24"/>
@@ -48,6 +53,7 @@
                     <connections>
                         <outlet property="cityPicker" destination="o3s-9P-B6G" id="ROt-kN-zH0"/>
                         <outlet property="graph" destination="Th9-jR-QUK" id="Ju0-Xi-vyB"/>
+                        <outlet property="sunView" destination="rfY-lc-MZY" id="etr-VN-zq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yus-Ou-VDb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,6 +15,7 @@ class CompareCityViewController: UIViewController, GKBarGraphDataSource, UIPicke
     
     @IBOutlet weak var graph: GKBarGraph!
     @IBOutlet weak var cityPicker: UIPickerView!
+    @IBOutlet weak var sunView: UIView!
     
     
     let userDefaults = UserDefaults.standard
@@ -23,6 +24,7 @@ class CompareCityViewController: UIViewController, GKBarGraphDataSource, UIPicke
     var modelArray : [WeatherModel] = []
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "a41c95ab72c869ec929effc87d524984"
+    var animator : UIDynamicAnimator?
 
     
     override func viewDidLoad() {
@@ -32,11 +34,22 @@ class CompareCityViewController: UIViewController, GKBarGraphDataSource, UIPicke
         cityPicker.dataSource = self
         cityPicker.delegate = self
         graph.dataSource = self
+        sunView.backgroundColor = UIColor(patternImage: UIImage(named: "sun")!)
+    
+
     }
     
     @IBAction func compareCitiesPressed(_ sender: UIButton) {
+        dropSun()
         sender.pulsate()
         updateLabel()
+    }
+    
+    func dropSun() {
+        self.animator = UIDynamicAnimator(referenceView:self.sunView)
+        var gravity = UIGravityBehavior(items: [sunView])
+        
+        animator!.addBehavior(gravity)
     }
     
     func updateLabel(){
