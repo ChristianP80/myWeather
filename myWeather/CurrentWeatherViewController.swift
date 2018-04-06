@@ -169,6 +169,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
     }
     
     @IBAction func saveAsFavoritePressed(_ sender: UIButton) {
+ 
         
         if favoriteCitys.contains(cityLabel.text!){
             let alert = UIAlertController(title: "Already Favorite", message: "City is already added in favorite list", preferredStyle: UIAlertControllerStyle.alert)
@@ -221,6 +222,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate,
             acessoryImageView.image = #imageLiteral(resourceName: "question")
         }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

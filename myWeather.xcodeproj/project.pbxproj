@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D13B0B8207782170014DEEA /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13B0B7207782170014DEEA /* ButtonExtension.swift */; };
 		3D1E3DB1206B6C4400E240F1 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E3DB0206B6C4400E240F1 /* city.list.json */; };
 		3D3B88E3206D5E77007E484F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B88E2206D5E77007E484F /* SearchCell.swift */; };
 		3D3B88E9207615FC007E484F /* CompareCitysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B88E8207615FC007E484F /* CompareCitysViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D13B0B7207782170014DEEA /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		3D1E3DB0206B6C4400E240F1 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		3D3B88E2206D5E77007E484F /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		3D3B88E8207615FC007E484F /* CompareCitysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCitysViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				3D9CED26205EF98700F7D5B1 /* LaunchScreen.storyboard */,
 				3D1E3DB0206B6C4400E240F1 /* city.list.json */,
 				3D9CED29205EF98700F7D5B1 /* Info.plist */,
+				3D13B0B7207782170014DEEA /* ButtonExtension.swift */,
 			);
 			path = myWeather;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D13B0B8207782170014DEEA /* ButtonExtension.swift in Sources */,
 				3D9CED1E205EF98600F7D5B1 /* AppDelegate.swift in Sources */,
 				3D67E978206504E200EC8424 /* WeatherModel.swift in Sources */,
 				3D3B88E9207615FC007E484F /* CompareCitysViewController.swift in Sources */,
