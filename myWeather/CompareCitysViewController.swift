@@ -47,7 +47,7 @@ class CompareCityViewController: UIViewController, GKBarGraphDataSource, UIPicke
     
     func dropSun() {
         self.animator = UIDynamicAnimator(referenceView:self.sunView)
-        var gravity = UIGravityBehavior(items: [sunView])
+        let gravity = UIGravityBehavior(items: [sunView])
         
         animator!.addBehavior(gravity)
     }
